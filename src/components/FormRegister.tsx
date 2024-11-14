@@ -61,9 +61,11 @@ export default function FormRegister() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
+    console.log('api  url', apiUrl)
+
     if (!formRef.current) return
-    console.log('Formulario enviado:', formData)
     if (!apiUrl) return
+    console.log('Formulario enviado:', formData)
 
     setIsSending(true)
 
