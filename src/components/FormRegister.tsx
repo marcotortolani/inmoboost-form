@@ -139,7 +139,7 @@ export default function FormRegister() {
             <Input
               id="companyName"
               name="CompanyName"
-              value={formData?.CompanyName}
+              value={formData ? formData?.CompanyName : ''}
               onChange={handleInputChange}
               required
             />
@@ -149,7 +149,7 @@ export default function FormRegister() {
             <Input
               id="fullName"
               name="FullName"
-              value={formData?.FullName}
+              value={formData ? formData?.FullName : ''}
               onChange={handleInputChange}
               required
             />
@@ -160,7 +160,7 @@ export default function FormRegister() {
               id="email"
               name="Email"
               type="email"
-              value={formData?.Email}
+              value={formData ? formData?.Email : ''}
               onChange={handleInputChange}
               required
             />
@@ -189,7 +189,7 @@ export default function FormRegister() {
               id="website"
               name="Website"
               type="text"
-              value={formData?.Website}
+              value={formData ? formData?.Website : ''}
               onChange={handleInputChange}
             />
           </div>
@@ -229,13 +229,14 @@ export default function FormRegister() {
           </div>
           <Button
             disabled={
-              formData.CompanyName === '' ||
-              formData.FullName === '' ||
-              formData.Email === '' ||
-              formData.Location === '' ||
-              formData.Website === '' ||
-              formData.YearsInMarket === '' ||
-              formData.EmployeeCount === ''
+              formData &&
+              (formData?.CompanyName === '' ||
+                formData?.FullName === '' ||
+                formData?.Email === '' ||
+                formData?.Location === '' ||
+                formData?.Website === '' ||
+                formData?.YearsInMarket === '' ||
+                formData?.EmployeeCount === '')
             }
             type="submit"
             className="w-full disabled:cursor-not-allowed disabled:opacity-40 disabled:text-neutral-300 "
