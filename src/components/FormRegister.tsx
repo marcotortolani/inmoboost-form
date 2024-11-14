@@ -229,14 +229,14 @@ export default function FormRegister() {
           </div>
           <Button
             disabled={
-              formData &&
-              (formData?.CompanyName === '' ||
-                formData?.FullName === '' ||
-                formData?.Email === '' ||
-                formData?.Location === '' ||
-                formData?.Website === '' ||
-                formData?.YearsInMarket === '' ||
-                formData?.EmployeeCount === '')
+              !formData ||
+              formData?.CompanyName === '' ||
+              formData?.FullName === '' ||
+              formData?.Email === '' ||
+              formData?.Location === '' ||
+              formData?.Website === '' ||
+              formData?.YearsInMarket === '' ||
+              formData?.EmployeeCount === ''
             }
             type="submit"
             className="w-full disabled:cursor-not-allowed disabled:opacity-40 disabled:text-neutral-300 "
