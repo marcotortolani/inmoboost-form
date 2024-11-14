@@ -4,6 +4,7 @@
       "title": "Identificación de la ventaja competitiva y estrategia de crecimiento",
       "questions": [
         {
+          "id": 1,
           "text": "¿Tienes claridad sobre lo que hace única a tu inmobiliaria en el mercado?",
           "answers": [
             { "text": "Sí", "points": 3 },
@@ -11,6 +12,7 @@
           ]
         },
         {
+          "id": 2,
           "text": "¿Tienes una estrategia definida para posicionar tu inmobiliaria como líder en el mercado?",
           "answers": [
             { "text": "Sí, completamente definida", "points": 3 },
@@ -19,6 +21,7 @@
           ]
         },
         {
+          "id": 3,
           "text": "¿Sabes quién es tu cliente ideal y cómo llegar a él de manera eficiente?",
           "answers": [
             { "text": "Sí", "points": 3 },
@@ -31,6 +34,7 @@
       "title": "Estrategias para captar clientes y aumentar ventas",
       "questions": [
         {
+          "id": 4,
           "text": "¿Tu inmobiliaria cuenta con un plan de captación de clientes claro y estructurado?",
           "answers": [
             { "text": "Sí", "points": 3 },
@@ -38,6 +42,7 @@
           ]
         },
         {
+          "id": 5,
           "text": "¿Tienes algún proceso establecido para convertir a los leads (clientes potenciales) en ventas?",
           "answers": [
             { "text": "Sí, muy claro", "points": 3 },
@@ -46,6 +51,7 @@
           ]
         },
         {
+          "id": 6,
           "text": "¿Realizas un seguimiento constante a tus prospectos y clientes durante todo el proceso de compra o alquiler?",
           "answers": [
             { "text": "Sí", "points": 3 },
@@ -58,6 +64,7 @@
       "title": "Mejora de la gestión interna, procesos operativos y coordinación de equipos",
       "questions": [
         {
+          "id": 7,
           "text": "¿Tienes procedimientos claros y documentados para las operaciones diarias de tu inmobiliaria?",
           "answers": [
             { "text": "Sí, todo está documentado", "points": 3 },
@@ -66,6 +73,7 @@
           ]
         },
         {
+          "id": 8,
           "text": "¿Cómo evalúas la productividad de tu equipo? ¿Tienes indicadores o métricas de rendimiento?",
           "answers": [
             { "text": "Sí, evaluamos regularmente", "points": 3 },
@@ -74,6 +82,7 @@
           ]
         },
         {
+          "id": 9,
           "text": "¿Estás satisfecho con la coordinación entre los diferentes departamentos de tu inmobiliaria?",
           "answers": [
             { "text": "Sí, todo fluye correctamente", "points": 3 },
@@ -87,22 +96,37 @@
       "title": "Fortalecimiento de la gestión financiera y maximización de rentabilidad",
       "questions": [
         {
+          "id": 10,
           "text": "¿Tienes un control claro de tus finanzas, incluyendo ingresos y gastos de la inmobiliaria?",
           "answers": [
-            { "text": "Sí, gestionamos nuestras finanzas con un sistema claro", "points": 3 },
+            {
+              "text": "Sí, gestionamos nuestras finanzas con un sistema claro",
+              "points": 3
+            },
             { "text": "Más o menos, usamos herramientas básicas", "points": 1 },
-            { "text": "No, la gestión financiera es desorganizada", "points": 0 }
+            {
+              "text": "No, la gestión financiera es desorganizada",
+              "points": 0
+            }
           ]
         },
         {
+          "id": 11,
           "text": "¿Estás obteniendo la rentabilidad que esperas de tu inmobiliaria?",
           "answers": [
             { "text": "Sí, la rentabilidad es excelente", "points": 3 },
-            { "text": "Más o menos, pero no estamos logrando todo nuestro potencial", "points": 1 },
-            { "text": "No, la rentabilidad está por debajo de lo esperado", "points": 0 }
+            {
+              "text": "Más o menos, pero no estamos logrando todo nuestro potencial",
+              "points": 1
+            },
+            {
+              "text": "No, la rentabilidad está por debajo de lo esperado",
+              "points": 0
+            }
           ]
         },
         {
+          "id": 12,
           "text": "¿Realizas análisis regulares de los costos y márgenes de tus operaciones?",
           "answers": [
             { "text": "Sí, con frecuencia", "points": 3 },
@@ -115,15 +139,24 @@
   ],
   "diagnosis": {
     "optimal": {
-      "score_range": [30, 39],
+      "score_range": {
+        "min": 30,
+        "max": 39
+      },
       "message": "Tienes una base sólida; sin embargo, un análisis personalizado podría identificar puntos de mejora estratégica para optimizar tu rentabilidad."
     },
     "potential_improvement": {
-      "score_range": [15, 29],
+      "score_range": {
+        "min": 15,
+        "max": 29
+      },
       "message": "Tu inmobiliaria tiene un gran potencial; con una estrategia bien definida y procesos eficientes, podrías alcanzar un rendimiento mucho mayor. Te invito a una cita para analizar cómo mejorar esos aspectos clave."
     },
     "urgent_need": {
-      "score_range": [0, 14],
+      "score_range": {
+        "min": 0,
+        "max": 14
+      },
       "message": "Es fundamental trabajar en la base operativa y financiera de tu inmobiliaria para alcanzar tus metas de crecimiento y rentabilidad. Coordinar una reunión para analizar en detalle tu situación puede ayudarte a tomar los primeros pasos hacia el cambio."
     }
   }

@@ -27,7 +27,7 @@ export default function ModalFormCompleted() {
           className="mt-6 w-full bg-sky-600 "
           onClick={() => router.push('/diagnostic')}
         >
-          Obtener diagnóstico
+          Realizar diagnóstico
         </Button>
       </DialogContent>
     </Dialog>
