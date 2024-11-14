@@ -62,7 +62,8 @@ export default function FormRegister() {
     e.preventDefault()
     console.log('Formulario enviado:', formData)
     // Aquí puedes agregar la lógica para enviar los datos a un servidor
-    if (formRef.current instanceof HTMLFormElement === false) return
+    //if (formRef.current instanceof HTMLFormElement === false) return
+    if (!formRef.current) return
     if (!apiUrl) return
 
     setIsSending(true)
