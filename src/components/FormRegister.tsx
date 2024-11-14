@@ -31,7 +31,7 @@ export const formDataInitialValues = {
 }
 
 export default function FormRegister() {
-  const formRef = useRef<HTMLFormElement | undefined>(undefined)
+  const formRef = useRef<HTMLFormElement | null>(null)
   const [isSending, setIsSending] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useLocalStorage(
@@ -60,10 +60,9 @@ export default function FormRegister() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!formRef.current) return
     console.log('Formulario enviado:', formData)
-    // Aquí puedes agregar la lógica para enviar los datos a un servidor
-    //if (formRef.current instanceof HTMLFormElement === false) return
-    //if (!formRef.current) return
     if (!apiUrl) return
 
     setIsSending(true)
@@ -230,14 +229,7 @@ export default function FormRegister() {
           </div>
           <Button
             disabled={
-              !formData ||
-              formData?.CompanyName === '' ||
-              formData?.FullName === '' ||
-              formData?.Email === '' ||
-              formData?.Location === '' ||
-              formData?.Website === '' ||
-              formData?.YearsInMarket === '' ||
-              formData?.EmployeeCount === ''
+              !formData || Object.values(formData).some((value) => value === '')
             }
             type="submit"
             className="w-full disabled:cursor-not-allowed disabled:opacity-40 disabled:text-neutral-300 "
