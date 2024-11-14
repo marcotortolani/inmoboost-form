@@ -31,7 +31,7 @@ export const formDataInitialValues = {
 }
 
 export default function FormRegister() {
-  const formRef = useRef<HTMLFormElement | null>(null)
+  const formRef = useRef<HTMLFormElement | undefined>(undefined)
   const [isSending, setIsSending] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useLocalStorage(
@@ -63,7 +63,7 @@ export default function FormRegister() {
     console.log('Formulario enviado:', formData)
     // Aquí puedes agregar la lógica para enviar los datos a un servidor
     //if (formRef.current instanceof HTMLFormElement === false) return
-    if (!formRef.current) return
+    //if (!formRef.current) return
     if (!apiUrl) return
 
     setIsSending(true)
