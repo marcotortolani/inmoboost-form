@@ -16,7 +16,8 @@ import {
 import { useToast } from '@/hooks/use-toast'
 import ModalFormCompleted from './ModalFormCompleted'
 
-const apiUrl = process.env.NEXT_PUBLIC_API_SHEET
+const apiUrl =
+  'https://script.google.com/macros/s/AKfycbyXj8hj2e8vyDPSv3z5rVfa117bBuO0dUSXqRC2R3t5Ktbhcl_1pa4W9NXunqeYoiX09w/exec'
 
 export const formDataInitialValues = {
   CompanyName: '',
@@ -60,8 +61,6 @@ export default function FormRegister() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    console.log('api  url', apiUrl)
 
     if (!formRef.current) return
     if (!apiUrl) return
