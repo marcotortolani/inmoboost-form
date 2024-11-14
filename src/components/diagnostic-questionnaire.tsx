@@ -50,6 +50,11 @@ export default function DiagnosticQuestionnaire() {
   )
   const [isComplete, setIsComplete] = useState(false)
 
+  const totalAnswers = sections.reduce(
+    (acc, section) => acc + section.questions.length,
+    0
+  )
+
   console.log('selected answer', selectedAnswer)
 
   const handleAnswer = () => {
@@ -110,7 +115,7 @@ export default function DiagnosticQuestionnaire() {
     ((currentSection * 3 + currentQuestion + 1) / (sections.length * 3)) * 100
 
   if (isComplete) {
-    const finalDiagnosis = getDiagnosis(dataDiagnostic.totalPoints)
+    const finalDiagnosis = getDiagnosis(dataDiagnostic?.totalPoints)
     const alertVariant =
       finalDiagnosis === diagnosis.optimal
         ? 'default'
@@ -169,8 +174,7 @@ export default function DiagnosticQuestionnaire() {
             .reduce((acc, section) => acc + section.questions.length, 0) +
             currentQuestion +
             1}{' '}
-          de{' '}
-          {sections.reduce((acc, section) => acc + section.questions.length, 0)}
+          de {totalAnswers}
         </CardDescription>
       </CardHeader>
       <CardContent>
