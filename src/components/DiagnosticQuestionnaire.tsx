@@ -129,7 +129,7 @@ export default function DiagnosticQuestionnaire() {
   const progress =
     ((currentSection * 3 + currentQuestion + 1) / (sections.length * 3)) * 100
 
-  if (!isComplete) {
+  if (isComplete) {
     const finalDiagnosis = getDiagnosis(dataDiagnostic.totalPoints)
     const alertVariant =
       finalDiagnosis === diagnosis.optimal
