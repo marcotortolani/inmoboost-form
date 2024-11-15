@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { Button, buttonVariants } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -14,7 +15,13 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
 import { Progress } from '@/components/ui/progress'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { CheckCircle2, AlertTriangle, AlertCircle } from 'lucide-react'
+import {
+  CheckCircle2,
+  AlertTriangle,
+  AlertCircle,
+  Zap,
+  RefreshCcw,
+} from 'lucide-react'
 
 type Answer = {
   id: string
@@ -122,7 +129,7 @@ export default function DiagnosticQuestionnaire() {
   const progress =
     ((currentSection * 3 + currentQuestion + 1) / (sections.length * 3)) * 100
 
-  if (isComplete) {
+  if (!isComplete) {
     const finalDiagnosis = getDiagnosis(dataDiagnostic.totalPoints)
     const alertVariant =
       finalDiagnosis === diagnosis.optimal
@@ -155,8 +162,9 @@ export default function DiagnosticQuestionnaire() {
             <AlertDescription>{finalDiagnosis.message}</AlertDescription>
           </Alert>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex justify-between">
           <Button
+            variant="outline"
             onClick={() => {
               setIsComplete(false)
               setCurrentSection(0)
@@ -164,8 +172,17 @@ export default function DiagnosticQuestionnaire() {
               setDataDiagnostic({ answers: [], totalPoints: 0 })
             }}
           >
-            Reiniciar Diagnóstico
+            <RefreshCcw />
+            Diagnóstico
           </Button>
+          <Link
+            href="https://www.inmoboost.uy"
+            target="_blank"
+            className={buttonVariants({ variant: 'default' })}
+          >
+            <Zap />
+            <span className=" font-bold">InmoBoost</span>
+          </Link>
         </CardFooter>
       </Card>
     )
