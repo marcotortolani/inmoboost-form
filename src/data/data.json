@@ -7,8 +7,8 @@
           "id": 1,
           "text": "¿Tienes claridad sobre lo que hace única a tu inmobiliaria en el mercado?",
           "answers": [
-            { "text": "Sí", "points": 3 },
-            { "text": "No", "points": 0 }
+            { "text": "Sí, tengo claridad sobre ello", "points": 3 },
+            { "text": "No, no lo tengo claro", "points": 0 }
           ]
         },
         {
@@ -17,15 +17,18 @@
           "answers": [
             { "text": "Sí, completamente definida", "points": 3 },
             { "text": "En algunos aspectos", "points": 1 },
-            { "text": "No", "points": 0 }
+            { "text": "No, no tenemos una estrategia definida", "points": 0 }
           ]
         },
         {
           "id": 3,
           "text": "¿Sabes quién es tu cliente ideal y cómo llegar a él de manera eficiente?",
           "answers": [
-            { "text": "Sí", "points": 3 },
-            { "text": "No", "points": 0 }
+            { "text": "Sí, lo tengo identificado", "points": 3 },
+            {
+              "text": "No, no hemos definido a nuestro cliente ideal",
+              "points": 0
+            }
           ]
         }
       ]
@@ -37,25 +40,25 @@
           "id": 4,
           "text": "¿Tu inmobiliaria cuenta con un plan de captación de clientes claro y estructurado?",
           "answers": [
-            { "text": "Sí", "points": 3 },
-            { "text": "No", "points": 0 }
+            { "text": "Sí, contamos con un plan claro", "points": 3 },
+            { "text": "No, no tenemos un plan estructurado", "points": 0 }
           ]
         },
         {
           "id": 5,
           "text": "¿Tienes algún proceso establecido para convertir a los leads (clientes potenciales) en ventas?",
           "answers": [
-            { "text": "Sí, muy claro", "points": 3 },
+            { "text": "Sí, el proceso es muy claro", "points": 3 },
             { "text": "A veces, depende del caso", "points": 1 },
-            { "text": "No", "points": 0 }
+            { "text": "No, no tenemos un proceso definido", "points": 0 }
           ]
         },
         {
           "id": 6,
           "text": "¿Realizas un seguimiento constante a tus prospectos y clientes durante todo el proceso de compra o alquiler?",
           "answers": [
-            { "text": "Sí", "points": 3 },
-            { "text": "No", "points": 0 }
+            { "text": "Sí, lo realizamos constantemente", "points": 3 },
+            { "text": "No, no hacemos seguimiento constante", "points": 0 }
           ]
         }
       ]
@@ -76,18 +79,21 @@
           "id": 8,
           "text": "¿Cómo evalúas la productividad de tu equipo? ¿Tienes indicadores o métricas de rendimiento?",
           "answers": [
-            { "text": "Sí, evaluamos regularmente", "points": 3 },
+            {
+              "text": "Sí, evaluamos regularmente el rendimiento",
+              "points": 3
+            },
             { "text": "De manera ocasional", "points": 1 },
-            { "text": "No tenemos métricas claras", "points": 0 }
+            { "text": "No, no utilizamos métricas de rendimiento", "points": 0 }
           ]
         },
         {
           "id": 9,
           "text": "¿Estás satisfecho con la coordinación entre los diferentes departamentos de tu inmobiliaria?",
           "answers": [
-            { "text": "Sí, todo fluye correctamente", "points": 3 },
+            { "text": "Sí, la coordinación fluye correctamente", "points": 3 },
             { "text": "A veces hay problemas de comunicación", "points": 1 },
-            { "text": "No, la coordinación es un desafío", "points": 0 }
+            { "text": "No, la coordinación es deficiente", "points": 0 }
           ]
         }
       ]
@@ -105,7 +111,7 @@
             },
             { "text": "Más o menos, usamos herramientas básicas", "points": 1 },
             {
-              "text": "No, la gestión financiera es desorganizada",
+              "text": "No, no tenemos un control adecuado de las finanzas",
               "points": 0
             }
           ]
@@ -129,9 +135,12 @@
           "id": 12,
           "text": "¿Realizas análisis regulares de los costos y márgenes de tus operaciones?",
           "answers": [
-            { "text": "Sí, con frecuencia", "points": 3 },
+            { "text": "Sí, hacemos análisis frecuentes", "points": 3 },
             { "text": "Ocasionalmente", "points": 1 },
-            { "text": "No, no realizamos este tipo de análisis", "points": 0 }
+            {
+              "text": "No, no realizamos análisis de costos ni márgenes",
+              "points": 0
+            }
           ]
         }
       ]
