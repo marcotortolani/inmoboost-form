@@ -173,12 +173,15 @@ export default function DiagnosticQuestionnaire() {
             }}
           >
             <RefreshCcw />
+            <span className="hidden md:inline">Reiniciar</span>
             Diagnóstico
           </Button>
           <Link
             href="https://www.inmoboost.uy"
             target="_blank"
-            className={buttonVariants({ variant: 'default' })}
+            className={
+              buttonVariants({ variant: 'default' }) + ' hover:bg-black/80'
+            }
           >
             <Zap />
             <span className=" font-bold">InmoBoost</span>
