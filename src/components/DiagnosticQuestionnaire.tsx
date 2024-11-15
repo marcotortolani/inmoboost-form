@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -22,7 +22,7 @@ type Answer = {
   points: number
 }
 
-type DataDiagnosticInitial = {
+type DataDiagnosticType = {
   answers: Answer[]
   totalPoints: number
 }
@@ -35,8 +35,15 @@ type DiagnosisType = {
   message: string
 }
 
-import { sections, diagnosis } from '@/data/data.json'
+import data from '@/data/data.json'
+const { sections, diagnosis } = data
+
 import useLocalStorage from '@/hooks/use-local-storage'
+
+const dataDiagnosticInitial = {
+  answers: [],
+  totalPoints: 0,
+}
 
 export default function DiagnosticQuestionnaire() {
   const [currentSection, setCurrentSection] = useState(0)
@@ -45,16 +52,21 @@ export default function DiagnosticQuestionnaire() {
     id: string
     value: string
   } | null>(null)
-  const [dataDiagnostic, setDataDiagnostic] = useLocalStorage(
-    'dataDiagnostic',
-    { answers: [], totalPoints: 0 }
-  )
+  const [dataDiagnostic, setDataDiagnostic] =
+    useLocalStorage<DataDiagnosticType>('dataDiagnostic', dataDiagnosticInitial)
+
   const [isComplete, setIsComplete] = useState(false)
 
   console.log('selected answer: ', selectedAnswer)
 
   const handleAnswer = () => {
     if (selectedAnswer === null) return
+    // if (
+    //   !dataDiagnostic &&
+    //   !dataDiagnostic.answers &&
+    //   !dataDiagnostic.answers.length
+    // )
+    //   return
 
     const [answer, points] = selectedAnswer.value.split('|')
     const newAnswer: Answer = {
@@ -67,7 +79,7 @@ export default function DiagnosticQuestionnaire() {
     setDataDiagnostic({
       ...prevData,
       answers: [
-        ...prevData.answers.filter((a: Answer) => a.id !== newAnswer.id),
+        ...prevData?.answers?.filter((a: Answer) => a.id !== newAnswer.id),
         newAnswer,
       ],
       totalPoints:
@@ -180,6 +192,7 @@ export default function DiagnosticQuestionnaire() {
           {currentQuestionData.text}
         </h3>
         <RadioGroup
+          id={`${currentQuestionData.id}`}
           onValueChange={(value) =>
             setSelectedAnswer({ id: currentQuestionData.id.toString(), value })
           }
@@ -207,13 +220,7 @@ export default function DiagnosticQuestionnaire() {
         <p className="text-sm text-muted-foreground">
           Puntos totales: {dataDiagnostic.totalPoints}
         </p>
-        <Button
-          onClick={handleAnswer}
-          disabled={
-            selectedAnswer === null ||
-            selectedAnswer.id !== currentQuestionData.id.toString()
-          }
-        >
+        <Button onClick={handleAnswer} disabled={selectedAnswer === null}>
           Aceptar
         </Button>
       </CardFooter>

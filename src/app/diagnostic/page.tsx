@@ -1,5 +1,5 @@
-import DiagnosticQuestionnaire from '@/components/diagnostic-questionnaire'
-//import DiagnosticQuestionnaire from '@/components/DiagnosticQuestionnaire'
+//import DiagnosticQuestionnaire from '@/components/diagnostic-questionnaire'
+import DiagnosticQuestionnaire from '@/components/DiagnosticQuestionnaire'
 
 export default function page() {
   return (

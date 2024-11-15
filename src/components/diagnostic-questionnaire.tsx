@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useLocalStorage from '@/hooks/use-local-storage'
 import { Button } from '@/components/ui/button'
 import {
@@ -23,7 +23,7 @@ type Answer = {
   points: number
 }
 
-type DataDiagnosticInitial = {
+type DataDiagnosticType = {
   answers: Answer[]
   totalPoints: number
 }
@@ -36,18 +36,20 @@ type DiagnosisType = {
   message: string
 }
 
-import { sections, diagnosis } from '@/data/data.json'
+import data from '@/data/data.json'
+const { sections, diagnosis } = data
 
-import CardAnswer from './CardAnswer'
+//import CardAnswer from './CardAnswer'
 
 export default function DiagnosticQuestionnaire() {
   const [currentSection, setCurrentSection] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null)
-  const [dataDiagnostic, setDataDiagnostic] = useLocalStorage(
-    'dataDiagnostic',
-    { answers: [], totalPoints: 0 }
-  )
+  const [dataDiagnostic, setDataDiagnostic] =
+    useLocalStorage<DataDiagnosticType>('dataDiagnostic', {
+      answers: [],
+      totalPoints: 0,
+    })
   const [isComplete, setIsComplete] = useState(false)
 
   const totalAnswers = sections.reduce(
@@ -66,10 +68,9 @@ export default function DiagnosticQuestionnaire() {
       answer,
       points: parseInt(points),
     }
-    const prevData = dataDiagnostic
+    //const prevData = dataDiagnostic
 
-    setDataDiagnostic({
-      ...prevData,
+    setDataDiagnostic((prevData) => ({
       answers: [
         ...prevData.answers.filter((a: Answer) => a.id !== newAnswer.id),
         newAnswer,
@@ -79,7 +80,7 @@ export default function DiagnosticQuestionnaire() {
         newAnswer.points -
         (prevData.answers.find((a: Answer) => a.id === newAnswer.id)?.points ||
           0),
-    })
+    }))
 
     if (currentQuestion < sections[currentSection].questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
@@ -184,7 +185,7 @@ export default function DiagnosticQuestionnaire() {
         </h3>
         <RadioGroup
           onValueChange={setSelectedAnswer}
-          value={selectedAnswer ? selectedAnswer : ''}
+          value={selectedAnswer || ''}
         >
           {currentQuestionData.answers.map((answer, index) => (
             <div key={index} className="flex items-center space-x-2">
